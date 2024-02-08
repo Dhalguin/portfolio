@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+  .btn-gradient:hover {
+    cursor: pointer;
+    background: linear-gradient('#021128', '#033f71', 'to left');
+  }
+}
