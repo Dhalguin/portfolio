@@ -1,18 +1,33 @@
 'use client'
+import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 
 export default function ContactForm() {
+  const [form, setForm] = useState({ from_name: '', from_email: '', message: '' })
+  const [showError, setShowError] = useState<boolean>(false)
+
   const onSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault()
 
-    emailjs
-      .sendForm(
-        process.env.NEXT_PUBLIC_SERVICE_ID ?? '',
-        process.env.NEXT_PUBLIC_TEMPLATE_ID ?? '',
-        ev.target as HTMLFormElement,
-        process.env.NEXT_PUBLIC_PUBLIC_KEY ?? ''
-      )
-      .then(res => alert('Email sended ' + res.status + ' ' + res.text))
+    if (form.from_name && form.from_email && form.message) {
+      emailjs
+        .sendForm(
+          process.env.NEXT_PUBLIC_SERVICE_ID ?? '',
+          process.env.NEXT_PUBLIC_TEMPLATE_ID ?? '',
+          ev.target as HTMLFormElement,
+          process.env.NEXT_PUBLIC_PUBLIC_KEY ?? ''
+        )
+        .then(res => alert('Email sended ' + res.status + ' ' + res.text))
+    } else {
+      setShowError(true)
+    }
+  }
+
+  const onChange = (ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm(prevState => ({
+      ...prevState,
+      [ev.target.name]: ev.target.value,
+    }))
   }
 
   return (
@@ -27,14 +42,18 @@ export default function ContactForm() {
           name="from_name"
           id="from_name"
           placeholder="Nombre"
-          className="bg-transparent border-solid border-b-2 border-zinc-600 pb-1 px-3"
+          className={`text-input ${showError && !form.from_name && 'error'}`}
+          value={form.from_name}
+          onChange={onChange}
         />
         <input
           type="email"
           name="from_email"
           id="from_email"
           placeholder="Correo eléctronico"
-          className="bg-transparent border-solid border-b-2 border-zinc-600 pb-1 px-3"
+          className={`text-input ${showError && !form.from_email && 'error'}`}
+          value={form.from_email}
+          onChange={onChange}
         />
         <textarea
           name="message"
@@ -42,7 +61,9 @@ export default function ContactForm() {
           cols={30}
           rows={5}
           placeholder="Mensaje"
-          className="bg-transparent border-solid border-b-2 border-zinc-600 pb-1 resize-none px-3"
+          className={`text-input ${showError && !form.message && 'error'} resize-none`}
+          value={form.message}
+          onChange={onChange}
         ></textarea>
         <div className="flex justify-end">
           <button

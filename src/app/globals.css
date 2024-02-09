@@ -2,9 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer {
-  .btn-gradient:hover {
-    cursor: pointer;
-    background: linear-gradient('#021128', '#033f71', 'to left');
+@layer components {
+  .text-input {
+    @apply bg-transparent border-solid border-b-2 border-zinc-600 pb-1 px-3;
+  }
+
+  .text-input.error {
+    @apply bg-transparent border-solid border-b-2 border-red-600 pb-1 px-3;
+  }
+
+  .text-input:focus {
+    outline: none;
   }
 }
