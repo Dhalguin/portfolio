@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
+import { toast } from 'react-hot-toast'
 
 export default function ContactForm() {
   const [form, setForm] = useState({ from_name: '', from_email: '', message: '' })
@@ -17,7 +18,18 @@ export default function ContactForm() {
           ev.target as HTMLFormElement,
           process.env.NEXT_PUBLIC_PUBLIC_KEY ?? ''
         )
-        .then(res => alert('Email sended ' + res.status + ' ' + res.text))
+        .then(() => {
+          toast.success('Correo enviado correctamente', { duration: 3000 })
+
+          setForm({
+            from_name: '',
+            from_email: '',
+            message: '',
+          })
+        })
+        .catch(() => toast.error('No se pudo enviar el correo', { duration: 3000 }))
+
+      setShowError(false)
     } else {
       setShowError(true)
     }
