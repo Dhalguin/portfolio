@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Salsa } from 'next/font/google'
+import { Toaster } from 'react-hot-toast'
 import './globals.css'
 
 const salsa = Salsa({
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${salsa.className} bg-[#121212] text-white px-24`}>
         <main className="min-h-screen mb-4">{children}</main>
+        <Toaster position="bottom-right" reverseOrder={false} />
       </body>
     </html>
   )
