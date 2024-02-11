@@ -1,12 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ProjectCard from './card'
 import { projects } from '@/app/constants/projects'
 import { ArrowRight, ArrowLeft } from '@/packages/icons'
 
 export default function Projects() {
   const [index, setIndex] = useState<number>(0)
+  const [isMobile, setIsMobile] = useState<boolean>(false)
 
   const totalProjects = projects.length - 1
 
@@ -26,18 +27,24 @@ export default function Projects() {
     }
   }
 
+  useEffect(() => {
+    if (window.matchMedia('(max-width: 768px)')) {
+      setIsMobile(true)
+    }
+  }, [])
+
   return (
     <section className="flex flex-col gap-10 my-10">
       <h2 className="text-5xl">Proyectos</h2>
       <div className="">
-        <div className="flex gap-6 w-full justify-center">
+        <div className="flex gap-6 w-full justify-between lg:justify-center">
           <button
             className="bg-gradient-to-l from-[#02142e]/[.4] to-[#053b6a]/[.8] px-3 rounded-s-xl rounded-e-xl"
             style={{ fontSize: '30px' }}
             onClick={() => prevProject()}
           >
             <i>
-              <ArrowLeft width={50} height={100} fill="white" />
+              <ArrowLeft width={isMobile ? 20 : 50} height={isMobile ? 40 : 100} fill="white" />
             </i>
             <span className="sr-only">Previous</span>
           </button>
@@ -54,7 +61,7 @@ export default function Projects() {
             onClick={() => nextProject()}
           >
             <i>
-              <ArrowRight width={50} height={100} fill="white" />
+              <ArrowRight width={isMobile ? 20 : 50} height={isMobile ? 40 : 100} fill="white" />
             </i>
             <span className="sr-only">Next</span>
           </button>

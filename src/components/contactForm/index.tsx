@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
-import emailjs from '@emailjs/browser'
 import { toast } from 'react-hot-toast'
+import emailjs from '@emailjs/browser'
 
 export default function ContactForm() {
   const [form, setForm] = useState({ from_name: '', from_email: '', message: '' })
@@ -43,10 +43,10 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="flex flex-1 justify-end">
+    <div className="flex flex-1 justify-center lg:justify-end">
       <form
         onSubmit={onSubmit}
-        className="flex flex-col gap-8 min-w-[75%] w-fit"
+        className="flex flex-col gap-8 min-w-full lg:min-w-[75%] lg:w-fit"
         autoComplete="off"
       >
         <input

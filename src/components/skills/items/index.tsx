@@ -24,10 +24,10 @@ interface ItemSkillIProps {
 
 export default function ItemSkill({ name, percentage, id }: ItemSkillIProps) {
   return (
-    <div className="flex flex-col gap-2 w-[30%] mb-10">
+    <div className="flex flex-col gap-2 w-full lg:w-[30%] mb-10">
       <div className="flex gap-4 items-center">
-        <span className="text-3xl">{name}</span>
-        <i className="h-8 max-w-10 flex items-center">
+        <span className="text-xl lg:text-3xl">{name}</span>
+        <i className="h-6 lg:h-8 max-w-8 lg:max-w-10 flex items-center">
           <Icons id={id} />
         </i>
       </div>

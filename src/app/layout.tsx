@@ -22,8 +22,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
       </head>
-      <body className={`${salsa.className} bg-[#121212] text-white px-24`}>
-        <main className="min-h-screen mb-4">{children}</main>
+      <body className={`${salsa.className} bg-[#121212] text-white px-4 sm:px-14 lg:px-24`}>
+        <main className="min-h-screen mb-1 lg:mb-4">{children}</main>
         <Toaster position="bottom-right" reverseOrder={false} />
       </body>
     </html>
