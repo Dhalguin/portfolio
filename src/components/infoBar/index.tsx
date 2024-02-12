@@ -1,4 +1,5 @@
 import { Permanent_Marker } from 'next/font/google'
+import Link from 'next/link'
 
 const permanentMarker = Permanent_Marker({
   subsets: ['latin'],
@@ -8,9 +9,11 @@ const permanentMarker = Permanent_Marker({
 export default function InfoBar() {
   return (
     <section className="flex items-center justify-between my-4">
-      <div className="flex-1">
-        <span className={permanentMarker.className}>Dhalgüin Hernández</span>
-      </div>
+      <Link href="/">
+        <div className="flex-1">
+          <span className={permanentMarker.className}>Dhalgüin Hernández</span>
+        </div>
+      </Link>
       <div className="flex gap-4">
         <a href="https://github.com/Dhalguin" target="_blank">
           <i className="fa fa-github" style={{ fontSize: '24px' }}></i>
