@@ -20,20 +20,20 @@ export default function ProjectDetail() {
   return (
     <section className={`${catamaran.className} min-h-screen py-8`}>
       <div className="flex flex-col gap-2 mb-8">
-        <h1 className="text-5xl">{projectName}</h1>
-        <p className="text-xl">{project?.description}</p>
+        <h1 className="text-3xl md:text-5xl">{projectName}</h1>
+        <p className="text-base md:text-lg">{project?.description}</p>
       </div>
-      <div className="flex gap-8 w-full">
+      <div className="flex flex-col gap-3 w-full md:flex-row md:gap-8">
         <div className="flex-1">
-          <p className="whitespace-pre-line text-lg">{project?.details}</p>
+          <p className="whitespace-pre-line text-base md:text-lg">{project?.details}</p>
         </div>
         <div className="min-h-full w-[1px] bg-gray-400" />
         <div className="flex-1">
           <div>
-            <h3 className="text-2xl">Resumen tecnico:</h3>
+            <h3 className="text-xl md:text-2xl">Resumen tecnico:</h3>
             <ul className="ml-6" style={{ listStyleType: 'disc' }}>
               {project?.techSummary.map((work, index) => (
-                <li key={index} className="my-2 text-lg">
+                <li key={index} className="my-2 text-base md:text-lg">
                   {work}
                 </li>
               ))}
@@ -41,13 +41,13 @@ export default function ProjectDetail() {
           </div>
         </div>
       </div>
-      <div className="mt-10 flex flex-col items-center">
+      <div className="mt-4 flex flex-col items-center md:mt-10">
         {project?.images.map((image, index) => (
           <img
             key={index}
             src={image}
             alt={String(index)}
-            className="w-3/4 my-4 rounded-xl shadow-md shadow-gray-500"
+            className="w-full my-4 rounded-xl shadow-md shadow-gray-500 md:w-3/4"
           />
         ))}
       </div>
