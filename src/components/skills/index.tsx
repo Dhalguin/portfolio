@@ -6,7 +6,7 @@ export default function Skills() {
   return (
     <PageSection>
       <h2 className="text-5xl">Habilidades</h2>
-      <div className="flex justify-between flex-wrap">
+      <div className="flex flex-wrap">
         {SkillsData.map(skill => (
           <ItemSkill
             key={skill.name}
