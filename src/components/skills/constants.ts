@@ -26,9 +26,19 @@ export const SkillsData: Skill[] = [
     id: 'REACT',
   },
   {
+    name: 'React Native',
+    percentage: 80,
+    id: 'REACT NATIVE',
+  },
+  {
     name: 'Next js',
     percentage: 90,
     id: 'NEXT',
+  },
+  {
+    name: 'Vue js',
+    percentage: 60,
+    id: 'VUE',
   },
   {
     name: 'Node js',
