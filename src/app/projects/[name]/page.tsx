@@ -2,10 +2,8 @@
 'use client'
 
 import { projects } from '@/app/constants/projects'
-import dayjs from 'dayjs'
 import { Catamaran } from 'next/font/google'
-import Image from 'next/image'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 
 const catamaran = Catamaran({
   subsets: ['latin'],
@@ -16,6 +14,8 @@ export default function ProjectDetail() {
 
   const projectName = String(name).split('-').join(' ')
   const project = projects.find(project => project.name === projectName)
+
+  const router = useRouter()
 
   return (
     <section className={`${catamaran.className} min-h-screen py-8`}>
@@ -50,6 +50,14 @@ export default function ProjectDetail() {
             className="w-full my-4 rounded-xl shadow-md shadow-gray-500 md:w-3/4"
           />
         ))}
+      </div>
+      <div className="flex justify-end">
+        <button
+          className="tracking-widest border-solid border-2 border-white p-2 rounded-lg min-w-60 w-full md:w-fit md:mt-6"
+          onClick={() => router.back()}
+        >
+          Volver
+        </button>
       </div>
     </section>
   )
