@@ -4,8 +4,7 @@ import ItemSkill from './items'
 
 export default function Skills() {
   return (
-    <PageSection>
-      <h2 className="text-5xl">Habilidades</h2>
+    <PageSection title="Habilidades">
       <div className="flex flex-wrap">
         {SkillsData.map(skill => (
           <ItemSkill

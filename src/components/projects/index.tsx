@@ -35,8 +35,7 @@ export default function Projects() {
   }, [])
 
   return (
-    <PageSection>
-      <h2 className="text-5xl">Proyectos</h2>
+    <PageSection title="Proyectos">
       <div className="">
         <div className="flex gap-6 w-full justify-between lg:justify-center">
           <button
