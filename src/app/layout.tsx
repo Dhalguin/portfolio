@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Salsa } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import './globals.css'
+import InfoBar from '@/components/infoBar'
 
 const salsa = Salsa({
   subsets: ['latin'],
@@ -23,8 +24,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={`${salsa.className} bg-[#121212] text-white px-4 sm:px-14 lg:px-24`}>
+        <InfoBar />
         <main className="min-h-screen mb-1 lg:mb-4">{children}</main>
         <Toaster position="bottom-right" reverseOrder={false} />
+        <InfoBar />
       </body>
     </html>
   )

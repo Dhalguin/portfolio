@@ -6,7 +6,6 @@ import Skills from '@/components/skills'
 export default function Home() {
   return (
     <main className="min-h-screen py-2">
-      <InfoBar />
       <section className="bg-[url('/banner.png')] bg-cover bg-left bg-[auto 100%] px-4">
         <div className="py-6 flex justify-between">
           <div className="flex flex-col gap-4 lg:gap-10">
@@ -43,7 +42,6 @@ export default function Home() {
         <ContactForm />
       </section>
       <div className="bg-zinc-900 h-1 w-full" />
-      <InfoBar />
     </main>
   )
 }
