@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import ProjectCard from './card'
 import { projects } from '@/app/constants/projects'
 import { ArrowRight, ArrowLeft } from '@/packages/icons'
+import { PageSection } from '@/packages/components'
 
 export default function Projects() {
   const [index, setIndex] = useState<number>(0)
@@ -34,7 +35,7 @@ export default function Projects() {
   }, [])
 
   return (
-    <section className="flex flex-col gap-10 my-10">
+    <PageSection>
       <h2 className="text-5xl">Proyectos</h2>
       <div className="">
         <div className="flex gap-6 w-full justify-between lg:justify-center">
@@ -67,6 +68,6 @@ export default function Projects() {
           </button>
         </div>
       </div>
-    </section>
+    </PageSection>
   )
 }
