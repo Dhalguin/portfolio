@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+
+:root {
+  --background: var(--color-primary-800);
+  --foreground: var(--color-primary-100);
+}
+
+@theme inline {
+  /* Colors */
+  --color-primary-100: #717171;
+  --color-primary-400: #6a6a6a;
+  --color-primary-500: #5e5e5e;
+  --color-primary-600: #444444;
+  --color-primary-700: #292929;
+  --color-primary-800: #212121;
+  --color-primary: var(--color-primary-500);
+
+  --color-secondary-500: #4052b6;
+  --color-secondary: var(--color-secondary-500);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  section {
+    @apply max-w-6xl py-16 px-4;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: white;
+    font-weight: bold;
+    font-family: 'Space Grotesk';
+  }
+}
