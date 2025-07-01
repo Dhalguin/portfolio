@@ -13,7 +13,7 @@ const ExperienceSection: React.FC = () => {
         </div>
         <div className="mt-10 relative">
           <div className="absolute left-1/2 top-0 h-full w-px bg-primary-600 hidden lg:block"></div>
-          <div className="grid grid-cols-2 lg:grid-cols-1 gap-x-4 lg:gap-x-0 gap-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-x-4 lg:gap-x-0 gap-y-12">
             {WorkExperiences.map(exp => (
               <ExperienceCard key={exp.id} experience={exp} />
             ))}
