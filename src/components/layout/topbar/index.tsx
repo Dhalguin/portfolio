@@ -155,7 +155,7 @@ const Topbar: React.FC = () => {
             <nav className="flex flex-col">
               <div className="flex flex-col gap-y-4">
                 {topbarOptions(t).map((option, index) => (
-                  <div key={`topbar-option-${index}`}>
+                  <div key={`topbar-option-${index}`} onClick={() => onMenuCollpased()}>
                     <Link href={option.href}>
                       <span className="text-lg text-white">{option.label}</span>
                     </Link>
