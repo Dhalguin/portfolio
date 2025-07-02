@@ -6,14 +6,22 @@ import { LenguageOptions, TopbarOptions } from './constants'
 import { renderFlagIcon } from '@/helpers/renderIcon'
 import { LenguageEnum } from '@/constants/translate'
 import { useState } from 'react'
+import { useLenguage } from '@/contexts/lenguageContext'
 
 const Topbar: React.FC = () => {
   const [lenguagesDisplayed, setLenguagesDisplayed] = useState<boolean>(false)
   const [mobileMenuCollpased, setMobileMenuCollapsed] = useState<boolean>(false)
 
+  const { lenguage, setLenguage } = useLenguage()
+
   const onDisplayLenguages = () => setLenguagesDisplayed(prevState => !prevState)
 
   const onMenuCollpased = () => setMobileMenuCollapsed(prevState => !prevState)
+
+  const onChangeLenguage = (newLenguage: LenguageEnum) => {
+    setLenguage(newLenguage)
+    onDisplayLenguages()
+  }
 
   return (
     <div className="flex justify-center items-center border-b border-primary-600 w-full h-16 sticky top-0 left-0 backdrop-blur-md z-50">
@@ -44,7 +52,7 @@ const Topbar: React.FC = () => {
               onClick={() => onDisplayLenguages()}
             >
               <div className="flex items-center gap-4">
-                <i>{renderFlagIcon(LenguageEnum['english'])}</i>
+                <i>{renderFlagIcon(LenguageEnum[lenguage === 'en' ? 'en' : 'es'])}</i>
                 <span className="text-white">EN</span>
               </div>
             </div>
@@ -59,6 +67,7 @@ const Topbar: React.FC = () => {
                   <div
                     key={`lenguage-option-${index}`}
                     className="flex items-center gap-4 cursor-pointer rounded-lg py-1 px-2 hover:bg-accent"
+                    onClick={() => onChangeLenguage(option.type)}
                   >
                     <i>{renderFlagIcon(LenguageEnum[option.flag])}</i>
                     <span className="text-white">{option.label}</span>
@@ -87,7 +96,7 @@ const Topbar: React.FC = () => {
               onClick={() => onDisplayLenguages()}
             >
               <div className="flex items-center gap-4">
-                <i>{renderFlagIcon(LenguageEnum['english'])}</i>
+                <i>{renderFlagIcon(LenguageEnum[lenguage === 'en' ? 'en' : 'es'])}</i>
                 <span className="text-white">EN</span>
               </div>
             </div>
