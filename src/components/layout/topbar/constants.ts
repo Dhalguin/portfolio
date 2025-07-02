@@ -22,16 +22,19 @@ export const TopbarOptions: TopbarOption[] = [
 
 type LenguageOption = {
   flag: LenguageEnum
+  type: LenguageEnum
   label: string
 }
 
 export const LenguageOptions: LenguageOption[] = [
   {
-    flag: LenguageEnum['english'],
+    flag: LenguageEnum['en'],
+    type: LenguageEnum['en'],
     label: 'EN',
   },
   {
-    flag: LenguageEnum['spanish'],
+    flag: LenguageEnum['es'],
+    type: LenguageEnum['es'],
     label: 'ES',
   },
 ]

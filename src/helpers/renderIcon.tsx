@@ -38,7 +38,7 @@ export const renderIcon = (value: TechnologiesEnum) => {
 
 export const renderFlagIcon = (value: LenguageEnum) => {
   switch (value) {
-    case 'spanish':
+    case 'es':
       return <FlagIcon.SpainFlagIcon width="32" height="32" />
 
     default:
