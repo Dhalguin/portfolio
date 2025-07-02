@@ -18,6 +18,8 @@
   --color-secondary-500: #4052b6;
   --color-secondary: var(--color-secondary-500);
 
+  --color-accent: #009585;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
