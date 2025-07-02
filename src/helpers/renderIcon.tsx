@@ -1,16 +1,11 @@
 import { TechnologiesEnum } from '@/constants/skills'
-import { CodeIcon, TechnologyIcon } from '../../packages/icons'
+import { FlagIcon, TechnologyIcon } from '../../packages/icons'
+import { LenguageEnum } from '@/constants/translate'
 
 export const renderIcon = (value: TechnologiesEnum) => {
   switch (value) {
-    case 'reactjs':
-      return <TechnologyIcon.ReactjsIcon width="24" height="24" fill="white" />
-
     case 'nextjs':
       return <TechnologyIcon.NextjsIcon width="24" height="24" fill="white" />
-
-    case 'react-native':
-      return <TechnologyIcon.ReactjsIcon width="24" height="24" fill="white" />
 
     case 'typescript':
       return <TechnologyIcon.TypescriptIcon width="24" height="24" fill="white" />
@@ -37,6 +32,16 @@ export const renderIcon = (value: TechnologiesEnum) => {
       return <TechnologyIcon.AwsIcon width="24" height="24" fill="white" />
 
     default:
-      return <CodeIcon width="24" height="24" fill="white" />
+      return <TechnologyIcon.ReactjsIcon width="24" height="24" fill="white" />
+  }
+}
+
+export const renderFlagIcon = (value: LenguageEnum) => {
+  switch (value) {
+    case 'spanish':
+      return <FlagIcon.SpainFlagIcon width="32" height="32" />
+
+    default:
+      return <FlagIcon.USAFlagIcon width="32" height="32" />
   }
 }
