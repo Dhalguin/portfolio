@@ -7,7 +7,8 @@
 
 @theme inline {
   /* Colors */
-  --color-primary-100: #717171;
+  --color-primary-100: #909090;
+  --color-primary-200: #717171;
   --color-primary-400: #6a6a6a;
   --color-primary-500: #5e5e5e;
   --color-primary-600: #444444;
