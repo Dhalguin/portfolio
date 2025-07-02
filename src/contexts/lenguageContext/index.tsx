@@ -7,12 +7,12 @@ import { translations } from '@/lib/translations'
 const LenguageContext = createContext<LenguageContextType | undefined>(undefined)
 
 export const LenguageProvider: React.FC<LenguageProviderType> = ({ children }) => {
-  const [lenguage, setLenguage] = useState<Lenguage>('en')
+  const [lenguage, setLenguage] = useState<Lenguage>('es')
 
   const t = useMemo(
     () =>
       (key: TranslationKey): string | string[] => {
-        const text = translations[lenguage][key] || translations['en'][key]
+        const text = translations[lenguage][key] || translations['es'][key]
 
         return text
       },
