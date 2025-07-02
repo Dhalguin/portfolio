@@ -111,6 +111,7 @@ const Topbar: React.FC = () => {
                   <div
                     key={`lenguage-option-${index}`}
                     className="flex items-center gap-4 cursor-pointer rounded-lg py-1 px-2 hover:bg-accent"
+                    onClick={() => onChangeLenguage(option.type)}
                   >
                     <i>{renderFlagIcon(LenguageEnum[option.flag])}</i>
                     <span className="text-white">{option.label}</span>
