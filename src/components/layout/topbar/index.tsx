@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { CloseIcon, CodeIcon, MenuIcon } from '../../../../packages/icons'
-import { LenguageOptions, TopbarOptions } from './constants'
+import { LenguageOptions, topbarOptions } from './constants'
 import { renderFlagIcon } from '@/helpers/renderIcon'
 import { LenguageEnum } from '@/constants/translate'
 import { useState } from 'react'
@@ -12,7 +12,7 @@ const Topbar: React.FC = () => {
   const [lenguagesDisplayed, setLenguagesDisplayed] = useState<boolean>(false)
   const [mobileMenuCollpased, setMobileMenuCollapsed] = useState<boolean>(false)
 
-  const { lenguage, setLenguage } = useLenguage()
+  const { lenguage, setLenguage, t } = useLenguage()
 
   const onDisplayLenguages = () => setLenguagesDisplayed(prevState => !prevState)
 
@@ -36,7 +36,7 @@ const Topbar: React.FC = () => {
             </Link>
           </div>
           <div className="flex w-full justify-evenly">
-            {TopbarOptions.map((option, index) => (
+            {topbarOptions(t).map((option, index) => (
               <div key={`topbar-option-${index}`}>
                 <Link href={option.href}>
                   <span className="text-lg text-white/60">{option.label}</span>
@@ -154,7 +154,7 @@ const Topbar: React.FC = () => {
             </div>
             <nav className="flex flex-col">
               <div className="flex flex-col gap-y-4">
-                {TopbarOptions.map((option, index) => (
+                {topbarOptions(t).map((option, index) => (
                   <div key={`topbar-option-${index}`}>
                     <Link href={option.href}>
                       <span className="text-lg text-white">{option.label}</span>

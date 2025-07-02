@@ -6,8 +6,11 @@ import { ControlledInputUI, ControlledTextareaUI } from '../../../../packages/ui
 import { ContactForm, ContactFormResolverSchema } from '@/constants/resolvers/ContactFormResolver'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { sendEmail } from '@/lib/nodemailer'
+import { useLenguage } from '@/contexts/lenguageContext'
 
 const ContactSection: React.FC = () => {
+  const { t } = useLenguage()
+
   const {
     control,
     handleSubmit,
@@ -35,35 +38,33 @@ const ContactSection: React.FC = () => {
   return (
     <section id="contact" className="flex justify-center bg-primary-700 w-full">
       <div className="flex flex-col items-center gap-5 w-fit">
-        <h2 className="text-white font-bold text-4xl md:text-5xl">Get In Touch</h2>
-        <p className="text-lg text-center md:text-start">
-          Have a project in mind or just want to say hi? Feel free to reach out.
-        </p>
+        <h2 className="text-white font-bold text-4xl md:text-5xl">{t('contact_title')}</h2>
+        <p className="text-lg text-center md:text-start">{t('contact_description')}</p>
         <div className="mt-10 w-full">
           <form className="flex flex-col gap-5 w-full" onSubmit={handleSubmit(onSubmit)}>
             <ControlledInputUI
               control={control}
               name="name"
-              label="Name"
-              placeholder="Your Name"
+              label={t('contact_form_name') as string}
+              placeholder={t('contact_form_name_placeholder') as string}
               error={errors?.name}
             />
             <ControlledInputUI
               control={control}
               name="email"
-              label="Email"
-              placeholder="your.email@xample.com"
+              label={t('contact_form_email') as string}
+              placeholder={t('contact_form_email_placeholder') as string}
               error={errors?.email}
             />
             <ControlledTextareaUI
               control={control}
               name="message"
-              label="Message"
-              placeholder="Tell me about your project"
+              label={t('contact_form_message') as string}
+              placeholder={t('contact_form_message_placeholder') as string}
               error={errors?.message}
             />
             <button className="bg-secondary text-white py-2 rounded-lg cursor-pointer">
-              Send Message
+              {t('contact_form_button_send')}
             </button>
           </form>
         </div>

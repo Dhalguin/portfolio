@@ -1,7 +1,12 @@
+'use client'
+
 import Link from 'next/link'
 import { CodeIcon, GithubIcon, InstagramIcon, LinkedinIcon } from '../../../../packages/icons'
+import { useLenguage } from '@/contexts/lenguageContext'
 
 const HeroSection: React.FC = () => {
+  const { t } = useLenguage()
+
   return (
     <section id="hero" className="flex bg-background w-full">
       <div className="flex w-full items-center justify-between gap-5 lg:gap-0 flex-col md:flex-row-reverse">
@@ -12,17 +17,13 @@ const HeroSection: React.FC = () => {
         </div>
         <div className="flex flex-col items-center md:items-start gap-5">
           <h1 className="text-white font-bold text-5xl lg:text-7xl">Dhalgüin Hernández</h1>
-          <h3 className="text-secondary text-2xl md:text-4xl">Full Stack Developer</h3>
-          <p className="text-lg max-w-xl text-center md:text-start">
-            I craft elegant and efficient web solutions, turning complex problems into beautiful,
-            intuitive designs. Passionate about modern web technologies and building products that
-            users love.
-          </p>
+          <h3 className="text-secondary text-2xl md:text-4xl">{t('hero_subtitle')}</h3>
+          <p className="text-lg max-w-xl text-center md:text-start">{t('hero_description')} </p>
           <div className="flex justify-center md:justify-start gap-10 md:gap-5 mt-5 w-full">
             <Link
               href={'https://github.com/Dhalguin'}
               target="_blank"
-              className="border border-primary-400 rounded-lg p-3 hover:bg-primary-600"
+              className="border border-primary-400 rounded-lg p-3 hover:bg-accent"
             >
               <i>
                 <GithubIcon width="24" height="24" fill="white" />
@@ -31,7 +32,7 @@ const HeroSection: React.FC = () => {
             <Link
               href={'https://www.linkedin.com/in/dhalguin-hdz/'}
               target="_blank"
-              className="border border-primary-400 rounded-lg p-3 hover:bg-primary-600"
+              className="border border-primary-400 rounded-lg p-3 hover:bg-accent"
             >
               <i>
                 <LinkedinIcon width="24" height="24" fill="white" />
@@ -40,7 +41,7 @@ const HeroSection: React.FC = () => {
             <Link
               href={'https://www.instagram.com/dhalguin_hdz/'}
               target="_blank"
-              className="border border-primary-400 rounded-lg p-3 hover:bg-primary-600"
+              className="border border-primary-400 rounded-lg p-3 hover:bg-accent"
             >
               <i>
                 <InstagramIcon width="24" height="24" fill="white" />

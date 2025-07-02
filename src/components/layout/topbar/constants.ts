@@ -1,24 +1,29 @@
 import { LenguageEnum } from '@/constants/translate'
+import { TranslationKey } from '@/contexts/lenguageContext/type'
 
 type TopbarOption = {
   label: string
   href: string
 }
 
-export const TopbarOptions: TopbarOption[] = [
-  {
-    label: 'Skills',
-    href: '/#skills',
-  },
-  {
-    label: 'Experience',
-    href: '/#experience',
-  },
-  {
-    label: 'Contact',
-    href: '/#contact',
-  },
-]
+export const topbarOptions = (t: (key: TranslationKey) => string | string[]) => {
+  const data: TopbarOption[] = [
+    {
+      label: t('nav_skills') as string,
+      href: '/#skills',
+    },
+    {
+      label: t('nav_experience') as string,
+      href: '/#experience',
+    },
+    {
+      label: t('nav_contact') as string,
+      href: '/#contact',
+    },
+  ]
+
+  return data
+}
 
 type LenguageOption = {
   flag: LenguageEnum
