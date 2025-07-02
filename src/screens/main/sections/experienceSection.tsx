@@ -3,7 +3,7 @@ import { WorkExperiences } from '@/constants/experience'
 
 const ExperienceSection: React.FC = () => {
   return (
-    <section className="flex bg-background w-full">
+    <section id="experience" className="flex bg-background w-full">
       <div className="flex flex-col w-full">
         <div className="flex flex-col items-center gap-5 w-full">
           <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl">Work Experience</h2>

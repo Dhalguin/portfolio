@@ -3,7 +3,7 @@ import { renderIcon } from '@/helpers/renderIcon'
 
 const SkillSection: React.FC = () => {
   return (
-    <section className="flex bg-primary-700 w-full">
+    <section id="skills" className="flex bg-primary-700 w-full">
       <div className="flex w-full">
         <div className="flex flex-col items-center gap-5 w-full">
           <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl">

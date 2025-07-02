@@ -3,7 +3,7 @@ import { CodeIcon, GithubIcon, InstagramIcon, LinkedinIcon } from '../../../../p
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="flex bg-background w-full">
+    <section id="hero" className="flex bg-background w-full">
       <div className="flex w-full items-center justify-between gap-5 lg:gap-0 flex-col md:flex-row-reverse">
         <div>
           <div className="w-60 h-60 flex items-center justify-center border-4 bg-primary-500/20 border-secondary rounded-full">

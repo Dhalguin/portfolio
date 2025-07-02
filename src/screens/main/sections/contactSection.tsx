@@ -33,7 +33,7 @@ const ContactSection: React.FC = () => {
   }
 
   return (
-    <section className="flex justify-center bg-primary-700 w-full">
+    <section id="contact" className="flex justify-center bg-primary-700 w-full">
       <div className="flex flex-col items-center gap-5 w-fit">
         <h2 className="text-white font-bold text-4xl md:text-5xl">Get In Touch</h2>
         <p className="text-lg text-center md:text-start">
